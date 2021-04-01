@@ -25,4 +25,16 @@ public class BeerController {
         return beerService.getBeerById(beerId);
     }
 
+    @RequestMapping(value = "",method = RequestMethod.POST)
+    BeerDTO saveBeer(BeerDTO beerDTO){
+
+        return beerService.saveNewBeer(beerDTO);
+    }
+
+    @RequestMapping(value =  "{beerId}",method = RequestMethod.PUT)
+    void updateBeer(@PathVariable UUID beerId, BeerDTO beerDTO){
+
+        beerService.updateBeer(beerId,beerDTO);
+    }
+
 }
